@@ -1,0 +1,192 @@
+:root {
+  --color-primario: #2563eb;
+  --color-primario-hover: #1d4ed8;
+  --color-peligro: #dc2626;
+  --color-peligro-hover: #b91c1c;
+  --color-borde: #d1d5db;
+  --color-fondo: #f3f4f6;
+  --color-texto: #1f2937;
+  --radio: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+header {
+  background: var(--color-primario);
+  color: white;
+  padding: 1.25rem 2rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+main {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: var(--radio);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 200px;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+input, select {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  font-size: 0.95rem;
+}
+
+input:focus, select:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 1px;
+}
+
+.acciones {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex: 1 1 100%;
+}
+
+button {
+  padding: 0.55rem 1.1rem;
+  border: none;
+  border-radius: var(--radio);
+  background: var(--color-primario);
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--color-primario-hover);
+}
+
+button.secundario {
+  background: white;
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+}
+
+button.secundario:hover {
+  background: #f9fafb;
+}
+
+button.peligro {
+  background: var(--color-peligro);
+}
+
+button.peligro:hover {
+  background: var(--color-peligro-hover);
+}
+
+.mensaje {
+  flex: 1 1 100%;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.mensaje.exito {
+  color: #16a34a;
+}
+
+.mensaje.error {
+  color: var(--color-peligro);
+}
+
+.listado-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.listado-acciones {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contador {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 0.9rem;
+}
+
+th {
+  color: #4b5563;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+.btn-eliminar {
+  background: transparent;
+  color: var(--color-peligro);
+  border: 1px solid var(--color-peligro);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.btn-eliminar:hover {
+  background: #fef2f2;
+}

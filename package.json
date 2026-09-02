@@ -1,0 +1,14 @@
+{
+  "name": "gestion-alumnos",
+  "version": "1.0.0",
+  "description": "App sencilla de gestion de alumnos para practicar Playwright y CI/CD",
+  "private": true,
+  "scripts": {
+    "start": "http-server public -p 5500 -c-1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.4.0",
+    "http-server": "^14.1.1"
+  }
+}

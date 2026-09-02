@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Alumnos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gestión de Alumnos</h1>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="titulo-form-alta">
+      <h2 id="titulo-form-alta">Cargar alumno</h2>
+      <form id="form-alta" data-testid="form-alta" novalidate>
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" data-testid="input-nombre" required>
+        </div>
+
+        <div class="campo">
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" data-testid="input-apellido" required>
+        </div>
+
+        <div class="campo">
+          <label for="fechaNacimiento">Fecha de nacimiento</label>
+          <input type="date" id="fechaNacimiento" name="fechaNacimiento" data-testid="input-fecha-nacimiento" required>
+        </div>
+
+        <div class="campo">
+          <label for="legajo">Legajo</label>
+          <input type="text" id="legajo" name="legajo" data-testid="input-legajo" required>
+        </div>
+
+        <div class="campo">
+          <label for="carrera">Carrera universitaria en curso</label>
+          <select id="carrera" name="carrera" data-testid="input-carrera" required>
+            <option value="" disabled selected>Seleccioná una carrera</option>
+            <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
+            <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+            <option value="Licenciatura en Administración">Licenciatura en Administración</option>
+            <option value="Contador Público">Contador Público</option>
+            <option value="Abogacía">Abogacía</option>
+            <option value="Medicina">Medicina</option>
+            <option value="Psicología">Psicología</option>
+            <option value="Arquitectura">Arquitectura</option>
+            <option value="Diseño Gráfico">Diseño Gráfico</option>
+            <option value="Otra">Otra</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="genero">Género</label>
+          <input type="text" id="genero" name="genero" placeholder="Ej: Masculino">
+        </div>
+
+        <div class="acciones">
+          <button type="submit" data-testid="btn-agregar">Agregar alumno</button>
+          <button type="reset" class="secundario" data-testid="btn-limpiar-form">Limpiar formulario</button>
+        </div>
+
+        <p id="mensaje-form" class="mensaje" data-testid="mensaje-form" role="status"></p>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="titulo-filtros">
+      <h2 id="titulo-filtros">Filtrar alumnos</h2>
+      <form id="form-filtro" data-testid="form-filtro">
+        <div class="campo">
+          <label for="filtro-nombre">Nombre</label>
+          <input type="text" id="filtro-nombre" name="nombre" data-testid="filtro-nombre">
+        </div>
+
+        <div class="campo">
+          <label for="filtro-apellido">Apellido</label>
+          <input type="text" id="filtro-apellido" name="apellido" data-testid="filtro-apellido">
+        </div>
+
+        <div class="campo">
+          <label for="filtro-legajo">Legajo</label>
+          <input type="text" id="filtro-legajo" name="legajo" data-testid="filtro-legajo">
+        </div>
+
+        <div class="campo">
+          <label for="filtro-carrera">Carrera</label>
+          <select id="filtro-carrera" name="carrera" data-testid="filtro-carrera">
+            <option value="">Todas</option>
+            <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
+            <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+            <option value="Licenciatura en Administración">Licenciatura en Administración</option>
+            <option value="Contador Público">Contador Público</option>
+            <option value="Abogacía">Abogacía</option>
+            <option value="Medicina">Medicina</option>
+            <option value="Psicología">Psicología</option>
+            <option value="Arquitectura">Arquitectura</option>
+            <option value="Diseño Gráfico">Diseño Gráfico</option>
+            <option value="Otra">Otra</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="filtro-fecha-desde">Nacidos desde</label>
+          <input type="date" id="filtro-fecha-desde" name="fechaDesde" data-testid="filtro-fecha-desde">
+        </div>
+
+        <div class="campo">
+          <label for="filtro-fecha-hasta">Nacidos hasta</label>
+          <input type="date" id="filtro-fecha-hasta" name="fechaHasta" data-testid="filtro-fecha-hasta">
+        </div>
+
+        <div class="acciones">
+          <button type="submit" data-testid="btn-filtrar">Filtrar</button>
+          <button type="button" id="btn-limpiar-filtro" class="secundario" data-testid="btn-limpiar-filtro">Quitar filtros</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="listado-header">
+        <h2>Listado de alumnos</h2>
+        <div class="listado-acciones">
+          <span data-testid="contador-alumnos" class="contador"></span>
+          <button type="button" id="btn-borrar-todos" class="peligro" data-testid="btn-borrar-todos">Borrar todos</button>
+        </div>
+      </div>
+
+      <table data-testid="tabla-alumnos">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de nacimiento</th>
+            <th>Legajo</th>
+            <th>Carrera</th>
+            <th>Género</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tabla-alumnos-body" data-testid="tabla-alumnos-body">
+        </tbody>
+      </table>
+
+      <p id="sin-resultados" class="mensaje" data-testid="sin-resultados" hidden>No hay alumnos que coincidan con el filtro.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
